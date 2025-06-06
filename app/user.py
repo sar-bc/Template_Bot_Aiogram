@@ -9,25 +9,22 @@ from core.dictionary import *
 # import app.keyboards as kb
 # import re
 # import locale
-import logging
+# import logging
+from core.log import Logger
 from datetime import datetime
 from app.state import *
 # Установка русской локали
 # locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
 # Настройка логирования
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-)
-logger = logging.getLogger(__name__)
-# logger = Loger()
-# logger.get_name_log(__name__)
+
+logger = Logger(__name__)
+
 
 user_router = Router()
 
 @user_router.message(CommandStart())
 async def cmd_start(message: Message, state: FSMContext):
-    logger.info(f'ID_TG:{message.from_user.id}|Команда старт')
+    await logger.info(f'ID_TG:{message.from_user.id}|Команда старт')
     await message.answer(welcom_text)
     # db = DataBase()
     # user_state = await db.get_state(message.from_user.id)

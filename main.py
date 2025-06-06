@@ -8,7 +8,7 @@ from app.admin import admin_router
 from database.Database import DataBase
 from dotenv import load_dotenv
 import os
-from core.log import Loger
+from core.log import Logger
 from core.menu import set_commands
 # # Настройка логирования
 # logging.basicConfig(
@@ -18,8 +18,8 @@ from core.menu import set_commands
 # logger = logging.getLogger(__name__)
 
 
-logger = Loger()
-logger.get_name_log(__name__)
+logger = Logger(__name__)
+
 # Загружаем переменные окружения
 load_dotenv()
 

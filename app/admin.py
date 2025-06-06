@@ -7,7 +7,7 @@ from aiogram import types
 from database.Database import DataBase
 from database.models import UserState
 import logging
-from core.log import Loger
+from core.log import Logger
 from core.dictionary import *
 import app.keyboards as kb
 # для работы с файлами
@@ -23,13 +23,9 @@ from app.state import *
 # locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
 
 # Настройка логирования
-# logging.basicConfig(
-#     level=logging.INFO,
-#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-# )
-# logger = logging.getLogger(__name__)
-logger = Loger()
-logger.get_name_log(__name__)
+
+logger = Logger(__name__)
+
 
 admin_router = Router()
 
