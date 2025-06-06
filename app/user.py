@@ -30,3 +30,11 @@ async def cmd_start(message: Message, state: FSMContext):
     # user_state = await db.get_state(message.from_user.id)
     # await handle_start_command(message, state, user_state)  # Передаем необходимые параметры
     
+@user_router.message(Command('help'))
+async def cmd_help(message: Message):
+    help_text = "Это бот, который может помочь вам с различными задачами. Используйте команды для взаимодействия!"
+    await message.answer(help_text)
+
+@user_router.message(F.text)
+async def echo_message(message: Message):
+    await message.answer(f'Вы написали: {message.text}')
