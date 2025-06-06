@@ -35,6 +35,6 @@ async def cmd_help(message: Message):
     help_text = "Это бот, который может помочь вам с различными задачами. Используйте команды для взаимодействия!"
     await message.answer(help_text)
 
-@user_router.message(F.text)
-async def echo_message(message: Message):
-    await message.answer(f'Вы написали: {message.text}')
+# @user_router.message(F.text)
+# async def echo_message(message: Message):
+#     await message.answer(f'Вы написали: {message.text}')
